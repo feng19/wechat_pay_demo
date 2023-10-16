@@ -1,6 +1,7 @@
 defmodule WechatPayDemo.Application do
   @moduledoc false
   use Application
+  import Cachex.Spec
 
   @impl true
   def start(_type, _args) do
@@ -11,6 +12,8 @@ defmodule WechatPayDemo.Application do
       {Phoenix.PubSub, name: WechatPayDemo.PubSub},
       # Start the Endpoint (http/https)
       WechatPayDemoWeb.Endpoint,
+      {Cachex, :event_id_cache,
+       expiration: expiration(default: :timer.hours(25), interval: :timer.minutes(1))},
       WechatPayDemo.PayClient
     ]
 
