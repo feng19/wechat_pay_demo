@@ -10,11 +10,13 @@ defmodule WechatPayDemo.Application do
       WechatPayDemoWeb.Telemetry,
       # Start the PubSub system
       {Phoenix.PubSub, name: WechatPayDemo.PubSub},
-      # Start the Endpoint (http/https)
-      WechatPayDemoWeb.Endpoint,
+      # 启动 事件id 缓存，事件排重用到
       {Cachex, :event_id_cache,
        expiration: expiration(default: :timer.hours(25), interval: :timer.minutes(1))},
-      WechatPayDemo.PayClient
+      # 启动微信支付
+      WechatPayDemo.PayClient,
+      # Start the Endpoint (http/https)
+      WechatPayDemoWeb.Endpoint
     ]
 
     opts = [strategy: :one_for_one, name: WechatPayDemo.Supervisor]
