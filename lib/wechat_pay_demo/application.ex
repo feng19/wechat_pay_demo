@@ -11,8 +11,11 @@ defmodule WechatPayDemo.Application do
       # Start the PubSub system
       {Phoenix.PubSub, name: WechatPayDemo.PubSub},
       # 启动 事件id 缓存，事件排重用到
-      {Cachex, :event_id_cache,
-       expiration: expiration(default: :timer.hours(25), interval: :timer.minutes(1))},
+      {Cachex,
+       [
+         name: :event_id_cache,
+         expiration: expiration(default: :timer.hours(25), interval: :timer.minutes(1))
+       ]},
       # 启动微信支付
       WechatPayDemo.PayClient,
       # Start the Endpoint (http/https)
