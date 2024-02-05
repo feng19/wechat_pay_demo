@@ -31,7 +31,7 @@ defmodule WechatPayDemo.MixProject do
       {:telemetry_poller, "~> 1.0"},
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
-      {:wechat, "~> 0.13", hex: :wechat_sdk},
+      {:wechat, "~> 0.14", hex: :wechat_sdk},
       {:x509, "~> 0.8"},
       {:cachex, "~> 3.6"}
     ]

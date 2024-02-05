@@ -3,7 +3,7 @@ defmodule WechatPayDemo.PayEvent do
   require Logger
 
   # 处理 回调消息
-  def handle_event(_conn, message) do
+  def handle_event(_client, _conn, message) do
     Logger.info("Got message: #{inspect(message)}")
     id = Map.get(message, "id")
     # 排重处理

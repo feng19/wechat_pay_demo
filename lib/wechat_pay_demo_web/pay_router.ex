@@ -10,7 +10,7 @@ defmodule WechatPayDemoWeb.PayRouter do
     to: WeChat.Pay.EventHandler,
     init_opts: [
       client: WechatPayDemo.PayClient,
-      event_handler: &WechatPayDemo.PayEvent.handle_event/2
+      event_handler: &WechatPayDemo.PayEvent.handle_event/3
     ]
 
   match _, do: conn
