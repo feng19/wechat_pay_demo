@@ -50,7 +50,7 @@ if config_env() == :prod do
 end
 
 config :wechat, WechatPayDemo.PayClient,
-  api_secret_key: "api_secret_key",
+  api_secret_key: "api_secret_v3_key",
   api_secret_v2_key: "api_secret_v2_key",
   v2_ssl: [
     certfile: {:app_dir, :wechat_pay_demo, "priv/cert/apiclient_cert.pem"},
